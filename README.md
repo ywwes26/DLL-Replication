@@ -1,2 +1,2 @@
 # DLL-Replication
-This repository provide codes to replicate the simulation results of Decorrelated Local Linear estimator
+This repository provides codes and guidance to replicate the simulation results of Decorrelated Local Linear estimator
