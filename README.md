@@ -3,3 +3,6 @@ This repository provides codes and guidance to replicate the simulation results 
 
 ## Installation of the Package DLL
 The pakcage DLL can be installed from [CRAN](https://cran.r-project.org/):
+```R
+install.packages("DLL")
+```
