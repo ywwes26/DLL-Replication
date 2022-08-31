@@ -6,3 +6,5 @@ The pakcage DLL can be installed from [CRAN](https://cran.r-project.org/):
 ```R
 install.packages("DLL")
 ```
+
+## Simulation Settings and Replication
