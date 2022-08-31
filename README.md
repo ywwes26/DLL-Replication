@@ -8,3 +8,8 @@ install.packages("DLL")
 ```
 
 ## Simulation Settings and Replication
+
+### Setting 1
+```R
+library(DLL)
+```
