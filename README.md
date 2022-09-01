@@ -11,13 +11,10 @@ install.packages("DLL")
 
 ### Setting 1, 3 and 4
 ```R
-library(DLL)
-source("gen_data.R", encoding = "UTF-8")
-
 ### generate data
 # exactly sparse when approx_sparse=FALSE, approximately sparse when approx_sparse=TRUE
 # setting 1
-data_list = gen_data(n=1000,p=1500,setting="1",approx_sparse=FALSE)
+data_list = gen_data(n=1500,p=1500,setting="1",approx_sparse=FALSE)
 
 # setting 3 and 4
 # data_list = gen_data(n=1000,p=1500,setting="3")
@@ -25,6 +22,7 @@ data_list = gen_data(n=1000,p=1500,setting="1",approx_sparse=FALSE)
 
 X = data_list$X
 y = data_list$y
+e = data_list$e
 
 ### DLL estimator
 # evaluation points
@@ -43,6 +41,18 @@ DLL.out$est
 DLL.out$est.se
 DLL.out$CI
 
+
+### plug-in local lienar estimator
+plug.out = plug_in(X,y,D.ind,d0)
+# point estimates and se
+plug.out$est
+plug.out$est.se
+
+### oracle local linear estimator
+orac.out = orac(X,y,e,g=function(x) 1.5*sin(x),D.ind,d0)
+# point estimates and se
+orac.out$est
+orac.out$est.se
 ```
 
 
