@@ -18,8 +18,8 @@ plug_in = function(X,y,D.ind,d0) {
 
 ### oracle local linear estimator
 orac = function(X,y,e,g,D.ind,d0) {
-  # bw = suppressWarnings(thumbBw(X[,D.ind],g(X[,D.ind])+e,deg=1,kernel=SqK))
-  bw = lpbwselect(g(X[,D.ind])+e,X[,D.ind],eval=d0,deriv=1,kernel="uni",bwselect="mse-dpi")$bws[,"h"]
+  bw = suppressWarnings(thumbBw(X[,D.ind],g(X[,D.ind])+e,deg=1,kernel=SqK))
+  # bw = lpbwselect(g(X[,D.ind])+e,X[,D.ind],eval=d0,deriv=1,kernel="uni",bwselect="mse-dpi")$bws[,"h"]
   orac = lprobust(g(X[,D.ind])+e,X[,D.ind],eval=d0,deriv=1,p=1,h=bw,kernel="uni")
   est = orac$Estimate[,"tau.us"]
   est.se = orac$Estimate[,"se.us"]
