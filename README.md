@@ -55,7 +55,7 @@ d0 = c(0.1, 0.25)
 DLL.out = DLL(X=X, y=y, D.ind=1, d0=d0)
 
 # true value
-f1.deriv <- function(x) {
+f.deriv <- function(x) {
   mean.x <- -0.25
   sd.x <- 1
   p.x <- function(x) pnorm(x,mean = mean.x, sd = sd.x)
