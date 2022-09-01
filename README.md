@@ -12,7 +12,7 @@ install.packages("DLL")
 ### Setting 1, 3 and 4
 ```R
 library(DLL)
-source("data_gen.R", encoding = "UTF-8")
+source("gen_data.R", encoding = "UTF-8")
 
 ### generate data
 # exactly sparse when approx_sparse=FALSE, approximately sparse when approx_sparse=TRUE
@@ -49,7 +49,7 @@ DLL.out$CI
 ### Setting 2
 ```R
 library(DLL)
-source("data_gen.R", encoding = "UTF-8")
+source("gen_data.R", encoding = "UTF-8")
 
 ### generate data
 data_list = gen_data(n=1000,p=1500,setting="2")
@@ -88,7 +88,7 @@ The source code to implement ReSmoothing estimator is contained in the file spad
 library(DLL)
 library(grplasso)
 library(nprobust)
-source("data_gen.R", encoding = "UTF-8")
+source("gen_data.R", encoding = "UTF-8")
 source("spaddinf.R", encoding = "UTF-8")
 
 ### generate data
@@ -134,7 +134,7 @@ rs$Estimate[,"se.us"]
 ### Nonlinear Treatment Model
 ```R
 library(DLL)
-source("data_gen.R", encoding = "UTF-8")
+source("gen_data.R", encoding = "UTF-8")
 
 ### generate data
 data_list = gen_data(n=1000,p=1500,setting="nonlinear_treatment")
