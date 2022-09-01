@@ -1,7 +1,7 @@
 library(MASS)
 library(mvtnorm)
 
-data_gen = function(n=1000, p=1500, setting="1", approx_sparse = FALSE, df = NULL) {
+gen_data = function(n=1000, p=1500, setting="1", approx_sparse = FALSE, df = NULL) {
   
   # dimension of (D,X)
   p_dx = p + 1
