@@ -65,11 +65,14 @@ orac.out$est.se
 ```R
 library(DLL)
 source("gen_data.R", encoding = "UTF-8")
+source("helpers.R", encoding = "UTF-8") # sparse additive model
+source("local_linear.R", encoding = "UTF-8")
 
 ### generate data
 data_list = gen_data(n=1000,p=1500,setting="2")
 X = data_list$X
 y = data_list$y
+e = data_list$e
 
 ### DLL estimator
 # evaluation points
@@ -80,11 +83,12 @@ D.ind = 1
 DLL.out = DLL(X=X, y=y, D.ind=D.ind, d0=d0)
 
 ### true value, changes as index of D changes, check gen_data.R
+mean.x = -0.25
+sd.x = 1
+### CDF and PDF of X
+p.x = function(x) pnorm(x,mean = mean.x, sd = sd.x)
+d.x = function(x) dnorm(x,mean = mean.x, sd = sd.x)
 f.deriv <- function(x) {
-  mean.x = -0.25
-  sd.x = 1
-  p.x = function(x) pnorm(x,mean = mean.x, sd = sd.x)
-  d.x = function(x) dnorm(x,mean = mean.x, sd = sd.x)
   return(-1.5*pi*cos(pi*p.x(x))*d.x(x))
 }
 f.deriv(d0)
@@ -94,6 +98,18 @@ DLL.out$est
 DLL.out$est.se
 DLL.out$CI
 
+### plug-in local lienar estimator
+plug.out = plug_in(X,y,D.ind,d0)
+# point estimates and se
+plug.out$est
+plug.out$est.se
+
+### oracle local linear estimator
+# g function here is the true function, check gen_data.R
+orac.out = orac(X,y,e,g=function(x) -1.5*sin(pi*p.x(x)),D.ind,d0)
+# point estimates and se
+orac.out$est
+orac.out$est.se
 ```
 
 
