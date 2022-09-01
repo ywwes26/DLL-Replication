@@ -21,7 +21,7 @@ data_list = gen_data(n=1000,p=1500,setting="1",approx_sparse=FALSE)
 
 # setting 3 and 4
 # data_list = gen_data(n=1000,p=1500,setting="3")
-# data_list = gen_data(n=1000,p=1500,setting="4",df=10) # df:degree of freedom for t distribution
+# data_list = gen_data(n=1000,p=1500,setting="4",df=10) # df: degree of freedom for t distribution
 
 X = data_list$X
 y = data_list$y
