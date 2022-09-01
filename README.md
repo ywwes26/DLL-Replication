@@ -15,7 +15,7 @@ library(DLL)
 source("data_gen.R", encoding = "UTF-8")
 
 # generate data
-data_list = data_gen(n=1000,p=1500,setting="1",approx_sparse=FALSE)
+# exactly sparse when approx_sparse=FALSE, approximately sparse when approx_sparse=TRUE
 data_list = data_gen(n=1000,p=1500,setting="1",approx_sparse=FALSE)
 X = data_list$X
 y = data_list$y
