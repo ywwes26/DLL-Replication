@@ -86,7 +86,8 @@ source("data_gen.R", encoding = "UTF-8")
 source("spaddinf.R", encoding = "UTF-8")
 
 ### generate data
-data_list = gen_data(n=500,p=750,setting="1")
+# exactly sparse when approx_sparse=FALSE, approximately sparse when approx_sparse=TRUE
+data_list = gen_data(n=500,p=750,setting="1", approx_sparse=FALSE)
 X = data_list$X
 y = data_list$y
 
