@@ -17,11 +17,11 @@ source("data_gen.R", encoding = "UTF-8")
 ### generate data
 # exactly sparse when approx_sparse=FALSE, approximately sparse when approx_sparse=TRUE
 # setting 1
-data_list = data_gen(n=1000,p=1500,setting="1",approx_sparse=FALSE)
+data_list = gen_data(n=1000,p=1500,setting="1",approx_sparse=FALSE)
 
 # setting 3 and 4
-# data_list = data_gen(n=1000,p=1500,setting="3")
-# data_list = data_gen(n=1000,p=1500,setting="4",df=10) # df:degree of freedom for t distribution
+# data_list = gen_data(n=1000,p=1500,setting="3")
+# data_list = gen_data(n=1000,p=1500,setting="4",df=10) # df:degree of freedom for t distribution
 
 X = data_list$X
 y = data_list$y
@@ -50,7 +50,7 @@ library(DLL)
 source("data_gen.R", encoding = "UTF-8")
 
 ### generate data
-data_list = data_gen(n=1000,p=1500,setting="2")
+data_list = gen_data(n=1000,p=1500,setting="2")
 X = data_list$X
 y = data_list$y
 
@@ -87,7 +87,7 @@ library(DLL)
 source("data_gen.R", encoding = "UTF-8")
 
 ### generate data
-data_list = data_gen(n=1000,p=1500,setting="nonlinear_treatment")
+data_list = gen_data(n=1000,p=1500,setting="nonlinear_treatment")
 X = data_list$X
 y = data_list$y
 
