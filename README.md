@@ -62,11 +62,11 @@ DLL.out = DLL(X=X, y=y, D.ind=1, d0=d0)
 
 ### true value
 f.deriv <- function(x) {
-  mean.x <- -0.25
-  sd.x <- 1
-  p.x <- function(x) pnorm(x,mean = mean.x, sd = sd.x)
-  d.x <- function(x) dnorm(x,mean = mean.x, sd = sd.x)
-  -1.5*pi*cos(pi*p.x(x))*d.x(x)
+  mean.x = -0.25
+  sd.x = 1
+  p.x = function(x) pnorm(x,mean = mean.x, sd = sd.x)
+  d.x = function(x) dnorm(x,mean = mean.x, sd = sd.x)
+  return(-1.5*pi*cos(pi*p.x(x))*d.x(x))
 }
 f.deriv(d0)
 
