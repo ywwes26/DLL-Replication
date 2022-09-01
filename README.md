@@ -80,6 +80,9 @@ DLL.out$CI
 
 ### Nonlinear Treatment Model
 ```R
+library(DLL)
+source("data_gen.R", encoding = "UTF-8")
+
 ### generate data
 data_list = data_gen(n=1000,p=1500,setting="nonlinear_treatment")
 X = data_list$X
