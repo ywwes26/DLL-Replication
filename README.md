@@ -82,6 +82,7 @@ DLL.out$CI
 The source code to implement ReSmoothing estimator is contained in the file spaddinf.R, and this is a direct copy of the original implementation by the author of this method https://github.com/gregorkb/spaddinf/tree/master/R.
 ```R
 library(DLL)
+library(grplasso)
 source("data_gen.R", encoding = "UTF-8")
 source("spaddinf.R", encoding = "UTF-8")
 
