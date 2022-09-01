@@ -25,4 +25,14 @@ y = data_list$y
 d0 = c(0.1, 0.25)
 # inference on the first component of X
 DLL.out = DLL(X=X, y=y, D.ind=1, d0=d0)
+
+# true value
+f.deriv = function(d) 1.5*cos(d)
+f.deriv(d0)
+
+# point estimates, se and CI
+DLL.out$est
+DLL.out$est.se
+DLL.out$CI
+
 ```
