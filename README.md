@@ -19,7 +19,7 @@ source("local_linear.R", encoding = "UTF-8")
 ### generate data
 # exactly sparse when approx_sparse=FALSE, approximately sparse when approx_sparse=TRUE
 # setting 1
-data_list = gen_data(n=1500,p=1500,setting="1",approx_sparse=FALSE)
+data_list = gen_data(n=1000,p=1500,setting="1",approx_sparse=FALSE)
 
 # setting 3 and 4
 # data_list = gen_data(n=1000,p=1500,setting="3")
