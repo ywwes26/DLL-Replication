@@ -53,6 +53,7 @@ plug.out$est
 plug.out$est.se
 
 ### oracle local linear estimator
+# g function here is the true function, check gen_data.R
 orac.out = orac(X,y,e,g=function(x) 1.5*sin(x),D.ind,d0)
 # point estimates and se
 orac.out$est
