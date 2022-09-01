@@ -46,7 +46,6 @@ DLL.out$est
 DLL.out$est.se
 DLL.out$CI
 
-
 ### plug-in local lienar estimator
 plug.out = plug_in(X,y,D.ind,d0)
 # point estimates and se
