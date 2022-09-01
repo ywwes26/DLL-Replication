@@ -12,4 +12,7 @@ install.packages("DLL")
 ### Setting 1
 ```R
 library(DLL)
+library(MASS)
+
+
 ```
