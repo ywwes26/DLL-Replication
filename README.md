@@ -79,4 +79,10 @@ DLL.out$CI
 
 
 ### Nonlinear Treatment Model
+```R
+### generate data
+data_list = data_gen(n=1000,p=1500,setting="nonlinear_treatment")
+X = data_list$X
+y = data_list$y
+```
 
