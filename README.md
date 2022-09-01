@@ -128,6 +128,7 @@ source("spaddinf.R", encoding = "UTF-8")
 data_list = gen_data(n=500,p=750,setting="1", approx_sparse=FALSE)
 X = data_list$X
 y = data_list$y
+e = data_list$e
 
 ### DLL estimator
 # evaluation points
@@ -160,6 +161,13 @@ rs = lprobust(spaddinf.presmt.out$f.hat.design[,D.ind],X[,D.ind],eval=d0,deriv=1
 # point estimates and se
 rs$Estimate[,"tau.us"]
 rs$Estimate[,"se.us"]
+
+### oracle local linear estimator
+# g function here is the true function, check gen_data.R
+orac.out = orac(X,y,e,g=function(x) 1.5*sin(x),D.ind,d0)
+# point estimates and se
+orac.out$est
+orac.out$est.se
 ```
 
 
