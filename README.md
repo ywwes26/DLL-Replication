@@ -1,5 +1,5 @@
 # DLL-Replication
-This repository provides codes and guidance to replicate the simulation results of Decorrelated Local Linear estimator proposed in \<arxiv:1907.12732\>. For replication of the results, it is also helpful to check the package github page [https://github.com/zijguo/HighDim-Additive-Inference] and [Reference Manual](https://cran.r-project.org/web/packages/DLL/DLL.pdf).
+This repository provides codes and guidance to replicate the simulation results of Decorrelated Local Linear estimator proposed in \<arxiv:1907.12732\>. For replication of the results, it is also helpful to check the package github page https://github.com/zijguo/HighDim-Additive-Inference and [Reference Manual](https://cran.r-project.org/web/packages/DLL/DLL.pdf).
 
 ## Installation of the Package DLL
 The pakcage DLL can be installed from [CRAN](https://cran.r-project.org/):
