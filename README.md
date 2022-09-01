@@ -14,5 +14,15 @@ install.packages("DLL")
 library(DLL)
 source("data_gen.R", encoding = "UTF-8")
 
+# generate data
+data_list = data_gen(n=1000,p=1500,setting="1",approx_sparse=FALSE)
+data_list = data_gen(n=1000,p=1500,setting="1",approx_sparse=FALSE)
+X = data_list$X
+y = data_list$y
 
+# DLL estimator
+# evaluation points
+d0 = c(0.1, 0.25)
+# inference on the first component of X
+DLL.out = DLL(X=X, y=y, D.ind=1, d0=d0)
 ```
