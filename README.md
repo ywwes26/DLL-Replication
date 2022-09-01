@@ -78,6 +78,9 @@ DLL.out$CI
 ```
 
 
+### Comparison with ReSmoothing Estimator
+
+
 ### Nonlinear Treatment Model
 ```R
 library(DLL)
