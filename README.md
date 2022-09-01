@@ -79,6 +79,7 @@ DLL.out$CI
 
 
 ### Comparison with ReSmoothing Estimator
+The source code to implement ReSmoothing estimator is contained in the file spaddinf.R, and this is a direct copy of the original implementation by the author of this method https://github.com/gregorkb/spaddinf/tree/master/R.
 
 
 ### Nonlinear Treatment Model
