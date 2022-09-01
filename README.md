@@ -36,3 +36,39 @@ DLL.out$est.se
 DLL.out$CI
 
 ```
+
+
+### Setting 2
+```R
+library(DLL)
+source("data_gen.R", encoding = "UTF-8")
+
+# generate data
+data_list = data_gen(n=1000,p=1500,setting="2")
+X = data_list$X
+y = data_list$y
+
+# DLL estimator
+# evaluation points
+d0 = c(0.1, 0.25)
+# D.ind=1: inference on the first component of X
+DLL.out = DLL(X=X, y=y, D.ind=1, d0=d0)
+
+# true value
+f1.deriv <- function(x) {
+  mean.x <- -0.25
+  sd.x <- 1
+  p.x <- function(x) pnorm(x,mean = mean.x, sd = sd.x)
+  d.x <- function(x) dnorm(x,mean = mean.x, sd = sd.x)
+  -1.5*pi*cos(pi*p.x(x))*d.x(x)
+}
+f.deriv(d0)
+
+# point estimates, se and CI
+DLL.out$est
+DLL.out$est.se
+DLL.out$CI
+
+```
+
+
