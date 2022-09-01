@@ -98,7 +98,7 @@ f.deriv(d0)
 # evaluation points
 d0 = c(0.1, 0.25)
 # inference on the first component of X
-DLL.out = DLL(X=X, y=y, D.ind=1, d0=d0, treatment.SAM = TRUE)
+DLL.out = DLL(X=X, y=y, D.ind=1, d0=d0)
 
 ### point estimates, se and CI
 DLL.out$est
