@@ -26,15 +26,15 @@ data_list = gen_data(n=1000,p=1500,setting="1",approx_sparse=FALSE)
 X = data_list$X
 y = data_list$y
 
+### true value
+f.deriv = function(d) 1.5*cos(d)
+f.deriv(d0)
+
 ### DLL estimator
 # evaluation points
 d0 = c(0.1, 0.25)
 # inference on the first component of X
 DLL.out = DLL(X=X, y=y, D.ind=1, d0=d0)
-
-### true value
-f.deriv = function(d) 1.5*cos(d)
-f.deriv(d0)
 
 ### point estimates, se and CI
 DLL.out$est
@@ -54,12 +54,6 @@ data_list = gen_data(n=1000,p=1500,setting="2")
 X = data_list$X
 y = data_list$y
 
-### DLL estimator
-# evaluation points
-d0 = c(0.1, 0.25)
-# D.ind=1: inference on the first component of X
-DLL.out = DLL(X=X, y=y, D.ind=1, d0=d0)
-
 ### true value
 f.deriv <- function(x) {
   mean.x = -0.25
@@ -69,6 +63,12 @@ f.deriv <- function(x) {
   return(-1.5*pi*cos(pi*p.x(x))*d.x(x))
 }
 f.deriv(d0)
+
+### DLL estimator
+# evaluation points
+d0 = c(0.1, 0.25)
+# D.ind=1: inference on the first component of X
+DLL.out = DLL(X=X, y=y, D.ind=1, d0=d0)
 
 ### point estimates, se and CI
 DLL.out$est
@@ -80,6 +80,31 @@ DLL.out$CI
 
 ### Comparison with ReSmoothing Estimator
 The source code to implement ReSmoothing estimator is contained in the file spaddinf.R, and this is a direct copy of the original implementation by the author of this method https://github.com/gregorkb/spaddinf/tree/master/R.
+```R
+library(DLL)
+source("data_gen.R", encoding = "UTF-8")
+source("spaddinf.R", encoding = "UTF-8")
+
+### generate data
+data_list = gen_data(n=500,p=750,setting="1")
+X = data_list$X
+y = data_list$y
+
+### true value
+f.deriv = function(d) 1.5*cos(d)
+f.deriv(d0)
+
+### DLL estimator
+# evaluation points
+d0 = c(0.1, 0.25)
+# inference on the first component of X
+DLL.out = DLL(X=X, y=y, D.ind=1, d0=d0, treatment.SAM = TRUE)
+
+### point estimates, se and CI
+DLL.out$est
+DLL.out$est.se
+DLL.out$CI
+```
 
 
 ### Nonlinear Treatment Model
@@ -92,15 +117,15 @@ data_list = gen_data(n=1000,p=1500,setting="nonlinear_treatment")
 X = data_list$X
 y = data_list$y
 
+### true value
+f.deriv = function(d) 1.5*cos(d)
+f.deriv(d0)
+
 ### DLL estimator
 # evaluation points
 d0 = c(0.1, 0.25)
 # inference on the first component of X
 DLL.out = DLL(X=X, y=y, D.ind=1, d0=d0, treatment.SAM = TRUE)
-
-### true value
-f.deriv = function(d) 1.5*cos(d)
-f.deriv(d0)
 
 ### point estimates, se and CI
 DLL.out$est
