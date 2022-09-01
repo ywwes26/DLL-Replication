@@ -84,6 +84,7 @@ data_gen = function(n=1000, p=1500, setting="1", approx_sparse = FALSE, df = NUL
   
   if (setting == "nonlinear_treatment") {
     mean.x = -0.25
+    Cov_Matrix = toeplitz(c(1, 0.7, 0.5, 0.3, seq(0.1, 0, length.out = p-4)))
     X = mvrnorm(n,rep(mean.x,p),Sigma = Cov_Matrix)
     D = -0.5*exp(-X[,1]/2) + 0.5*sin(X[,2]) + 0.25*X[,3]^2 - 0.5*X[,4] - 0.25*X[,5]^2 + 0.5*cos(X[,6]) - 0.25*exp(X[,7]/2) + 0.25*X[,8] + rnorm(n,sd=0.5)
     X = cbind(D,X)
