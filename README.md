@@ -83,6 +83,7 @@ The source code to implement ReSmoothing estimator is contained in the file spad
 ```R
 library(DLL)
 library(grplasso)
+library(nprobust)
 source("data_gen.R", encoding = "UTF-8")
 source("spaddinf.R", encoding = "UTF-8")
 
@@ -106,6 +107,20 @@ DLL.out = DLL(X=X, y=y, D.ind=1, d0=d0)
 DLL.out$est
 DLL.out$est.se
 DLL.out$CI
+
+### ReSmoothing estimator
+# d.pre=20 is the default choice of the method
+spaddinf.presmt.cv.out = spadd.presmth.Bspl.cv(X,Y,d.pre=20,n.lambda=25,n.eta=25,n.folds=5)
+# change the n.foi=1 to n.foi=2 then the second output is the inference on the second component, etc.
+spaddinf.presmt.out = spadd.presmth.Bspl(X,Y,d.pre=20,lambda=spaddinf.presmt.cv.out$cv.lambda,eta=spaddinf.presmt.cv.out$cv.eta,n.foi=1)
+
+# the same bandwidth selection method as DLL
+bw = suppressWarnings(thumbBw(X[,1],spaddinf.presmt.out$f.hat.design[,1],deg=1,kernel=SqK))
+# use local linear after obtaining the presmoothing estimator
+rs = lprobust(spaddinf.presmt.out$f.hat.design[,1],X[,1],eval=d0,deriv=1,p=1,h=bw,kernel="uni")
+# point estimates and se
+rs$Estimate[,"tau.us"]
+rs$Estimate[,"se.us"]
 ```
 
 
