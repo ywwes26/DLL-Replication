@@ -11,6 +11,11 @@ install.packages("DLL")
 
 ### Setting 1, 3 and 4
 ```R
+library(DLL)
+source("gen_data.R", encoding = "UTF-8")
+source("helpers.R", encoding = "UTF-8") # sparse additive model
+source("local_linear.R", encoding = "UTF-8")
+
 ### generate data
 # exactly sparse when approx_sparse=FALSE, approximately sparse when approx_sparse=TRUE
 # setting 1
