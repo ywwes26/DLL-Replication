@@ -12,7 +12,7 @@ install.packages("DLL")
 ### Setting 1
 ```R
 library(DLL)
-library(MASS)
+source("data_gen.R", encoding = "UTF-8")
 
 
 ```
