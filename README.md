@@ -120,6 +120,7 @@ library(DLL)
 library(grplasso)
 library(nprobust)
 source("gen_data.R", encoding = "UTF-8")
+source("local_linear.R", encoding = "UTF-8")
 source("spaddinf.R", encoding = "UTF-8")
 
 ### generate data
