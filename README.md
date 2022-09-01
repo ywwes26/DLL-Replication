@@ -26,15 +26,17 @@ data_list = gen_data(n=1000,p=1500,setting="1",approx_sparse=FALSE)
 X = data_list$X
 y = data_list$y
 
-### true value
-f.deriv = function(d) 1.5*cos(d)
-f.deriv(d0)
-
 ### DLL estimator
 # evaluation points
 d0 = c(0.1, 0.25)
-# inference on the first component of X
-DLL.out = DLL(X=X, y=y, D.ind=1, d0=d0)
+# index of D in the matrix(D,X)
+D.ind = 1
+# inference on the D.ind component of X
+DLL.out = DLL(X=X, y=y, D.ind=D.ind, d0=d0)
+
+### true value, changes as index of D changes, check gen_data.R
+f.deriv = function(d) 1.5*cos(d)
+f.deriv(d0)
 
 ### point estimates, se and CI
 DLL.out$est
@@ -54,7 +56,15 @@ data_list = gen_data(n=1000,p=1500,setting="2")
 X = data_list$X
 y = data_list$y
 
-### true value
+### DLL estimator
+# evaluation points
+d0 = c(0.1, 0.25)
+# index of D in the matrix(D,X)
+D.ind = 1
+# inference on the D.ind component of X
+DLL.out = DLL(X=X, y=y, D.ind=D.ind, d0=d0)
+
+### true value, changes as index of D changes, check gen_data.R
 f.deriv <- function(x) {
   mean.x = -0.25
   sd.x = 1
@@ -63,12 +73,6 @@ f.deriv <- function(x) {
   return(-1.5*pi*cos(pi*p.x(x))*d.x(x))
 }
 f.deriv(d0)
-
-### DLL estimator
-# evaluation points
-d0 = c(0.1, 0.25)
-# D.ind=1: inference on the first component of X
-DLL.out = DLL(X=X, y=y, D.ind=1, d0=d0)
 
 ### point estimates, se and CI
 DLL.out$est
@@ -93,17 +97,17 @@ data_list = gen_data(n=500,p=750,setting="1", approx_sparse=FALSE)
 X = data_list$X
 y = data_list$y
 
-### true value
-f.deriv = function(d) 1.5*cos(d)
-f.deriv(d0)
-
 ### DLL estimator
 # evaluation points
 d0 = c(0.1, 0.25)
 # index of D in the matrix(D,X)
 D.ind = 1
-# inference on the first component of X
-DLL.out = DLL(X=X, y=y, D.ind=Dind, d0=d0)
+# inference on the D.ind component of X
+DLL.out = DLL(X=X, y=y, D.ind=D.ind, d0=d0)
+
+### true value, changes as index of D changes, check gen_data.R
+f.deriv = function(d) 1.5*cos(d)
+f.deriv(d0)
 
 ### point estimates, se and CI
 DLL.out$est
@@ -113,7 +117,7 @@ DLL.out$CI
 ### ReSmoothing estimator
 # d.pre=20 is the default choice of the method
 spaddinf.presmt.cv.out = spadd.presmth.Bspl.cv(X,Y,d.pre=20,n.lambda=25,n.eta=25,n.folds=5)
-# inference on the first D.ind components
+# inference on the 1:D.ind components
 spaddinf.presmt.out = spadd.presmth.Bspl(X,Y,d.pre=20,lambda=spaddinf.presmt.cv.out$cv.lambda,eta=spaddinf.presmt.cv.out$cv.eta,n.foi=D.ind)
 
 # the same bandwidth selection method as DLL
@@ -137,15 +141,15 @@ data_list = gen_data(n=1000,p=1500,setting="nonlinear_treatment")
 X = data_list$X
 y = data_list$y
 
-### true value
-f.deriv = function(d) 1.5*cos(d)
-f.deriv(d0)
-
 ### DLL estimator
 # evaluation points
 d0 = c(0.1, 0.25)
 # inference on the first component of X
 DLL.out = DLL(X=X, y=y, D.ind=1, d0=d0, treatment.SAM = TRUE)
+
+### true value, changes as index of D changes, check gen_data.R
+f.deriv = function(d) 1.5*cos(d)
+f.deriv(d0)
 
 ### point estimates, se and CI
 DLL.out$est
