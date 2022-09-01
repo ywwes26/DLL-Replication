@@ -87,5 +87,20 @@ source("data_gen.R", encoding = "UTF-8")
 data_list = data_gen(n=1000,p=1500,setting="nonlinear_treatment")
 X = data_list$X
 y = data_list$y
+
+### DLL estimator
+# evaluation points
+d0 = c(0.1, 0.25)
+# inference on the first component of X
+DLL.out = DLL(X=X, y=y, D.ind=1, d0=d0, treatment.SAM = TRUE)
+
+### true value
+f.deriv = function(d) 1.5*cos(d)
+f.deriv(d0)
+
+### point estimates, se and CI
+DLL.out$est
+DLL.out$est.se
+DLL.out$CI
 ```
 
