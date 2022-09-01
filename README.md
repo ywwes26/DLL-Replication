@@ -150,7 +150,7 @@ DLL.out$CI
 ### ReSmoothing estimator
 # d.pre=20 is the default choice of the method
 spaddinf.presmt.cv.out = spadd.presmth.Bspl.cv(X,y,d.pre=20,n.lambda=25,n.eta=25,n.folds=5)
-# inference on the 1:D.ind components
+# n.foi = D.ind represents inference on the 1:D.ind components
 spaddinf.presmt.out = spadd.presmth.Bspl(X,y,d.pre=20,lambda=spaddinf.presmt.cv.out$cv.lambda,eta=spaddinf.presmt.cv.out$cv.eta,n.foi=D.ind)
 
 # the same bandwidth selection method as DLL
