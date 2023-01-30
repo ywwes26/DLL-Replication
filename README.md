@@ -171,7 +171,7 @@ orac.out$est.se
 ```
 
 
-### Nonlinear Treatment Model(bugs unfixed)
+### Nonlinear Treatment Model
 ```R
 library(DLL)
 source("gen_data.R", encoding = "UTF-8")
